@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+   
+
+  
+   <link rel="stylesheet" href="estilos.css" />
+  <link rel="icon" href="./imagenes/icono.ico" type="imagen/x=icon">
+  <meta charset="UTF-8">
+  <div class="capa"></div>
+
+
+  <title>Calculadora de IMC</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  
+</head>
+<body >
+   
+  <div class="sol"></div>
+    <div class="container" >
+    <h2><span id="typed-name"></span></h2>
+    <label  for="peso">Peso (kg): ⚖️</label>
+    <input type="number" id="peso" step="0.1" placeholder="Ej. 70">
+
+    <label for="estatura">Estatura (m): 📏</label>
+    <input type="number" id="estatura" step="0.01" placeholder="Ej. 1.75">
+
+    <button  class="btn-shine "onclick="calcularIMC()">Calcular IMC</button>
+
+    <div id="resultado" ></div>
+    <div id="recomendaciones"></div>
+  </div>
+  
+
+</body>
+</head>
+<body>
+  <header>
+<!-- From Uiverse.io by JustCode14 --> 
+<label class="switch">
+  <input  id="toggle-dark" type="checkbox" />
+  <span class="slider">
+    <div class="star star_1"></div>
+    <div class="star star_2"></div>
+    <div class="star star_3"></div>
+    <svg viewBox="0 0 16 16" class="cloud_1 cloud">
+      <path
+        transform="matrix(.77976 0 0 .78395-299.99-418.63)"
+        fill="#fff"
+        d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
+      ></path>
+    </svg>
+  </span>
+</label>
+
+      
+
+</header>
+</body>
+</html>
+<script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="6zR3E7x6FR5kO2DPfxgxh";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    const btn = document.getElementById('toggle-dark');
+
+    // Cargar modo guardado
+    window.addEventListener('DOMContentLoaded', () => {
+      const modoGuardado = localStorage.getItem('modo');
+      if (modoGuardado === 'oscuro') {
+        document.body.classList.add('dark-mode');
+        btn.textContent = '';
+      }
+    });
+
+    // Cambiar modo al hacer clic
+    btn.addEventListener('click', () => {
+      const esOscuro = document.body.classList.toggle('dark-mode');
+      localStorage.setItem('modo', esOscuro ? 'oscuro' : 'claro');
+      btn.textContent = esOscuro ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
+    });
+    // guardado de imput
+    const checkpoint = document.getElementById('toggle-dark');
+
+// Al cargar la página, restaura el estado guardado
+window.addEventListener('DOMContentLoaded', () => {
+  const estadoGuardado = localStorage.getItem('funcion-especial');
+
+  if (estadoGuardado === 'true') {
+    checkpoint.checked = true;
+    activarFuncionEspecial(); // si quieres activar algo directamente
+  }
+});
+
+// Cuando el usuario cambia el estado del checkpoint
+checkpoint.addEventListener('change', () => {
+  const estaActivo = checkpoint.checked;
+
+  // Guarda en localStorage
+  localStorage.setItem('funcion-especial', estaActivo);
+
+  // Aquí puedes activar o desactivar algo
+  if (estaActivo) {
+    activarFuncionEspecial();
+  } else {
+    desactivarFuncionEspecial();
+  }
+});
+
+// Funciones opcionales (puedes cambiarlas por lo que necesites)
+function activarFuncionEspecial() {
+  console.log('Función activada');
+  // Código para activar
+}
+
+function desactivarFuncionEspecial() {
+  console.log('Función desactivada');
+  // Código para desactivar
+}
+
+
+    
+
+    
+   
+
+   
+     
+
+    
+       
+    
+    //efecto m. de escribir
+     const name = "Calculadora de IMC."
+    const speed = 100;
+    let i =  0;
+
+    function typeWriter(){
+      if(i< name.length){
+        document.getElementById("typed-name").innerHTML += name.charAt(i);
+        i++;
+        setTimeout(typeWriter,speed);
+      }
+    }
+    window.onload= typeWriter;
+    function calcularIMC() {
+      const peso = parseFloat(document.getElementById('peso').value);
+      const estatura = parseFloat(document.getElementById('estatura').value);
+      const resultado = document.getElementById('resultado');
+      const recomendaciones = document.getElementById('recomendaciones');
+
+      recomendaciones.innerHTML = ""; // Limpiar
+
+      if (!peso || !estatura || estatura <= 0) {
+        resultado.textContent = "Por favor, ingresa datos válidos.";
+        return;
+      }
+
+      const imc = peso / (estatura * estatura);
+      let clasificacion = "";
+      let links = [];
+
+      if (imc < 18.5) {
+        clasificacion = "Bajo peso";
+        links = [
+          "https://www.cdc.gov/nutrition/esp/estrategias-saludables.html",
+          "https://www.healthline.com/nutrition/how-to-gain-weight",
+          "https://www.medlineplus.gov/spanish/ency/article/007196.htm",
+          "https://www.healthline.com/nutrition/weight-gain-meal-plan",
+          "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6019055/"
+        ];
+      } else if (imc >= 18.5 && imc < 24.9) {
+        clasificacion = "Peso normal";
+        links = [
+          "https://www.cdc.gov/healthyweight/spanish/index.html",
+          "https://www.who.int/es/news-room/fact-sheets/detail/healthy-diet",
+          "https://www.nhs.uk/live-well/exercise/",
+          "https://www.healthline.com/health/fitness-exercise/weekly-workout-schedule",
+          "https://www.mayoclinic.org/es/healthy-lifestyle/fitness/in-depth/fitness/art-20048269"
+        ];
+      } else if (imc >= 25 && imc < 29.9) {
+        clasificacion = "Sobrepeso";
+        links = [
+          "https://www.cdc.gov/healthyweight/spanish/losing_weight/index.html",
+          "https://www.medlineplus.gov/spanish/weightcontrol.html",
+          "https://www.fundaciondelcorazon.com/nutricion/dietas/2225-dieta-para-perder-peso.html",
+          "https://www.healthline.com/nutrition/30-ways-to-lose-weight-naturally",
+          "https://www.nhs.uk/live-well/healthy-weight/start-the-nhs-weight-loss-plan/"
+        ];
+      } else if (imc >= 30 && imc < 34.9) {
+        clasificacion = "Obesidad grado I";
+        links = [
+          "https://www.nhlbi.nih.gov/health/educational/lose_wt/spanish/index.htm",
+          "https://www.who.int/es/news-room/fact-sheets/detail/obesity-and-overweight",
+          "https://medlineplus.gov/spanish/obesityinchildren.html",
+          "https://www.eatright.org/health/weight-loss/your-health-and-your-weight",
+          "https://www.cdc.gov/obesity/adult/causes.html"
+        ];
+      } else if (imc >= 35 && imc < 39.9) {
+        clasificacion = "Obesidad grado II";
+        links = [
+          "https://www.mayoclinic.org/es/diseases-conditions/obesity/symptoms-causes/syc-20375742",
+          "https://www.obesityaction.org/",
+          "https://www.healthline.com/nutrition/obesity-treatment",
+          "https://www.niddk.nih.gov/health-information/weight-management",
+          "https://www.uptodate.com/contents/obesity-beyond-the-basics"
+        ];
+      } else {
+        clasificacion = "Obesidad grado III (mórbida)";
+        links = [
+          "https://www.endocrine.org/patient-engagement/endocrine-library/obesity",
+          "https://www.cdc.gov/obesity/adult/index.html",
+          "https://www.webmd.com/diet/obesity/obesity-health-risks",
+          "https://medlineplus.gov/obesity.html",
+          "https://www.who.int/publications/i/item/9789240038309"
+        ];
+      }
+
+      resultado.textContent = `Tu IMC es: ${imc.toFixed(2)} - ${clasificacion}`;
+
+      let lista = "<p><strong>Recomendaciones:</strong></p><ul>";
+      links.forEach(link => {
+        lista += `<li class="animate__animated animate__zoomIn" ><a class="enlace" href="${link}" target="_blank">${link}</a></li>`;
+      });
+      lista += "</ul>";
+      recomendaciones.innerHTML = lista;
+    }
+     
+</script>
+
+
+
+

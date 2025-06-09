@@ -1,0 +1,545 @@
+
+
+  
+  
+  
+  
+  .enlace{
+     color: black ;
+  text-decoration: none
+    }
+
+    /* Enlace visitado */
+    .enlace:visited {
+      color: purple;
+    }
+
+    /* Enlace cuando el mouse está encima */
+    .enlace:hover {
+      color: blue;
+      
+    }
+
+    /* Enlace activo (cuando haces clic) */
+    .enlace:active {
+      color: orange;
+    }
+ 
+ 
+
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+    50px 80px white,
+    120px 200px white,
+    300px 100px white,
+    400px 250px white,
+    600px 120px white,
+    800px 90px white,
+    1000px 180px white,
+    150px 300px white,
+    200px 400px white,
+    190px 240px white,
+    180px 237px white,
+    1600px 2050px white,
+    34px 2550px white,
+    26px 10px white,
+    0.25px 0.75px white, 
+    250px  325px white,
+    900px 600px white,
+    1100px 300px white;
+    
+  opacity: 0.7;
+  z-index: 0;
+  pointer-events: none;
+}
+body::before{
+      content:"";
+      animation: blink 3s infinite; 
+    }
+    @keyframes blink{
+       0%, 100%{
+       opacity: 1;
+     }
+    50% {
+      opacity: 3;
+     }
+    }
+
+  
+  
+  
+  body{
+ background-color: #87CEEB;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23cb1010' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23b03f3f' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23d72639' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23b01729' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23d9124d' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23b2103f' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23d6427b' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23ac0757' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23c10e8b' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23a43d7d' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23a709a7' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23880888' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
+  background-position: center;  /* Centra la imagen */
+
+
+  }
+.sol {
+      position: absolute;
+      top: 50px;
+      right: 100px;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, #FFD700, #FFA500);
+      border-radius: 50%;
+      box-shadow: 0 0 60px rgba(255, 215, 0, 0.5);
+      z-index: -2;
+      transition: right 0.5s ease;
+       
+      }
+      
+     
+
+.container{
+  
+position: relative;
+  top: 30%;
+  z-index: 2;
+  margin: 0 auto;
+  max-width: 720px;
+  
+}
+  button {
+  position: relative;
+  margin: 0;
+  padding: 17px 35px;
+  outline: none;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: #fff;
+  border: 1px solid rgba(22, 76, 167, 0.6);
+  border-radius: 10px;
+  color: #1d89ff;
+  font-weight: 400;
+  font-family: inherit;
+  z-index: 0;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+
+button span {
+  color: #164ca7;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+}
+
+button:hover {
+  animation: rotate624 0.7s ease-in-out both;
+}
+
+button:hover span {
+  animation: storm1261 0.7s ease-in-out both;
+  animation-delay: 0.06s;
+}
+
+@keyframes rotate624 {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: rotate(3deg) translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+
+  75% {
+    transform: rotate(1deg) translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes storm1261 {
+  0% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+
+  25% {
+    transform: translate3d(4px, 0, 0) translateZ(0);
+  }
+
+  50% {
+    transform: translate3d(-3px, 0, 0) translateZ(0);
+  }
+
+  75% {
+    transform: translate3d(2px, 0, 0) translateZ(0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+}
+
+.btn-shine {
+  border: 1px solid;
+  overflow: hidden;
+  position: relative;
+}
+
+.btn-shine span {
+  z-index: 20;
+}
+
+.btn-shine:after {
+  background: #38ef7d;
+  content: "";
+  height: 155px;
+  left: -75px;
+  opacity: 0.4;
+  position: absolute;
+  top: -50px;
+  transform: rotate(35deg);
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  width: 50px;
+  z-index: -10;
+}
+
+.btn-shine:hover:after {
+  left: 120%;
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #e6f2ff;
+    }
+    
+      .container {
+      background-color:gray;
+      padding: 25px;
+      max-width: 500px;
+       background-color: rgba(255, 255, 255, .15);  
+       backdrop-filter: blur(5px);
+      margin: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #cccccc;
+       background-color: rgba(255, 255, 255, .15);  
+       backdrop-filter: blur(5px);
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      
+    }
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+    }
+    #recomendaciones {
+      margin-top: 15px;
+      font-size: 16px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    #typed-name::after{
+      content:"|";
+      animation: blink .7s infinite; 
+    }
+    @keyframes blink{
+       0%, 100%{
+       opacity: 1;
+     }
+    50% {
+      opacity: 0;
+     }
+    }
+    
+    /* Estilos generales */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+      color: black;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+       
+    background-color: #003366;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23cb1010' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23b03f3f' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23d72639' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23b01729' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23d9124d' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23b2103f' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23d6427b' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23ac0757' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23c10e8b' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23a43d7d' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23a709a7' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23880888' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+      background-position: center;  /* Centra la imagen */
+
+      color: #e0e0e0;
+      .sol {
+      position: absolute;
+      top: 50px;
+      left: 100px;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle at 30% 30%, #f8faff, #c0c9ff); /* tonos azulados claros */
+      border-radius: 50%;
+        box-shadow:
+    0 0 60px rgba(180, 200, 255, 0.5), /* halo exterior frío */
+    0 0 20px rgba(220, 230, 255, 0.6); /* luz más cercana */
+    z-index: 0;
+    right: 250px;
+    
+      }
+    }
+     
+  
+    .dark-mode button{
+      background-color: black;    
+      color: white;
+       
+      }
+      .dark-mode .container{
+        box-shadow:0 0 10px white; 
+      }
+      .dark-mode .peso{
+        color: white;
+      }
+      .dark-mode input::placeholder {
+  color: white;
+}
+      
+      input::placeholder {
+  color:gray;
+   }
+     .dark-mode input[type="number"]{
+      color: white;
+     }
+    
+     input[type="number"] {
+    color: black;  /* El texto que el usuario escribe será verde */
+  }
+   .dark-mode .enlace{
+    color:white ;
+  text-decoration: none
+  }
+  .dark-mode .enlace:visited{
+    color: purple;
+  }
+   .dark-mode .enlace:hover{
+    color: blue;
+    text-decoration: underline;
+   }
+   .dark-mode .enlace:active{
+    color: orange;
+    text-decoration: underline dotted;
+   }
+   
+
+
+    header {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: black;
+      transition: background-color 0.3s;
+      font-family: Arial, sans-serif;
+
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+    .switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+  transition: .4s;
+  border-radius: 5px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 0.1em;
+  border-radius: 0px;
+  left: 0.3em;
+  bottom: 0.3em;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #171717;
+  box-shadow: inset 2px 5px 10px rgb(0, 0, 0);
+}
+
+input:checked + .slider:before {
+  transform: translateX(2.8em) rotate(360deg);
+}
+/* From Uiverse.io by JustCode14 */ 
+/* Theme Switch */
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 4em;
+  height: 2.2em;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2a2a2a;
+  transition: 0.4s;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 20px;
+  left: 0.5em;
+  bottom: 0.5em;
+  transition: 0.4s;
+  transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
+  box-shadow: inset 8px -4px 0px 0px #fff;
+}
+
+.switch input:checked + .slider {
+  background-color: #00a6ff;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(1.8em);
+  box-shadow: inset 15px -4px 0px 15px #ffcf48;
+}
+
+.star {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  width: 5px;
+  transition: all 0.4s;
+  height: 5px;
+}
+
+.star_1 {
+  left: 2.5em;
+  top: 0.5em;
+}
+
+.star_2 {
+  left: 2.2em;
+  top: 1.2em;
+}
+
+.star_3 {
+  left: 3em;
+  top: 0.9em;
+}
+
+.switch input:checked ~ .slider .star {
+  opacity: 0;
+}
+
+.cloud {
+  width: 3.5em;
+  position: absolute;
+  bottom: -1.4em;
+  left: -1.1em;
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.switch input:checked ~ .slider .cloud {
+  opacity: 1;
+}
+ 
